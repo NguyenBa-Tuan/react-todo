@@ -57,7 +57,9 @@ function Todos() {
             {todos.length !== 0 ? (
                 <ListTodos todos={todos} setTodos={setTodos} />
             ) : (
-                <div>You're all caught up!</div>
+                <div className="list-todo">
+                    <p className="list-todo-none">You're all caught up!</p>
+                </div>
             )}
             <TotalTask todos={todos} />
         </div>

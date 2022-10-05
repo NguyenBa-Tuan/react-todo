@@ -17,21 +17,19 @@ const TotalTask = (props) => {
     };
 
     return (
-        <div>
-            <div className="total-task">
-                <span>
-                    {getLength()}
-                    tasks
-                </span>
-                <span>
-                    {getLength(false)}
-                    complete
-                </span>
-                <span>
-                    {getLength(true)}
-                    open
-                </span>
-            </div>
+        <div className="total-task">
+            <span>
+                {getLength() + " "}
+                tasks
+            </span>
+            <span>
+                {getLength(false) + " "}
+                complete
+            </span>
+            <span>
+                {getLength(true) + " "}
+                open
+            </span>
         </div>
     );
 };

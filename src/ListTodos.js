@@ -23,7 +23,10 @@ const ListTodos = (props) => {
             <div className="list-todo">
                 {todos.map((item) => {
                     return (
-                        <li key={item.id}>
+                        <li
+                            className={!item.isOpen ? "" : "complete"}
+                            key={item.id}
+                        >
                             <input
                                 type="checkbox"
                                 onChange={() =>
@@ -31,9 +34,11 @@ const ListTodos = (props) => {
                                 }
                                 checked={item.isOpen ? true : false}
                             />
-
-                            {item.title}
-                            <span onClick={() => handleDelete(item.id)}>
+                            <span className="todo-title">{item.title}</span>
+                            <span
+                                className="delete-btn"
+                                onClick={() => handleDelete(item.id)}
+                            >
                                 {" "}
                                 X
                             </span>
