@@ -30,7 +30,7 @@ function Todos() {
     };
 
     return (
-        <div className="App">
+        <div className="todo-container">
             <form
                 className="form-add-todo"
                 onSubmit={(e) => handleSubmitTodo(e)}
