@@ -19,12 +19,12 @@ function Todos() {
             alert("Please add a task description.");
             return;
         }
-        let newTodo = {
+        const newTodo = {
             id: Math.floor(Math.random() * 10000 + 1),
             title: todo,
             isOpen: false,
         };
-        let newTodos = [...todos, newTodo];
+        const newTodos = [...todos, newTodo];
         setTodos(newTodos);
         setTodo("");
     };

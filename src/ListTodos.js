@@ -9,7 +9,7 @@ const ListTodos = (props) => {
     };
 
     const handleOnClickCheckBox = (id, isOpen) => {
-        let updateTodo = todos.map((item) => {
+        const updateTodo = todos.map((item) => {
             if (item.id === id) {
                 return { ...item, isOpen: !isOpen };
             }
