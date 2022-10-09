@@ -1,22 +1,30 @@
-// import { useState } from "react";
+import { useCallback } from "react";
 
 const ListTodos = (props) => {
     const { todos, setTodos } = props;
 
-    const handleDelete = (id) => {
-        let newTodos = todos.filter((item) => item.id !== id);
-        setTodos(newTodos);
-    };
+    const handleDelete = useCallback(
+        (id) => {
+            const newTodos = todos.filter((item) => item.id !== id);
+            console.log(newTodos);
+            console.log(todos + "old");
+            setTodos(newTodos);
+        },
+        [todos]
+    );
 
-    const handleOnClickCheckBox = (id, isOpen) => {
-        const updateTodo = todos.map((item) => {
-            if (item.id === id) {
-                return { ...item, isOpen: !isOpen };
-            }
-            return item;
-        });
-        setTodos(updateTodo);
-    };
+    const handleOnClickCheckBox = useCallback(
+        (id, isOpen) => {
+            let updateTodo = todos.map((item) => {
+                if (item.id === id) {
+                    return { ...item, isOpen: !isOpen };
+                }
+                return item;
+            });
+            setTodos(updateTodo);
+        },
+        [todos]
+    );
 
     return (
         <div>
