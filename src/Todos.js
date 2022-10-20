@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ListTodos from "./ListTodos";
 import TotalTask from "./TotalTask";
 
@@ -9,25 +9,31 @@ function Todos() {
 
     const [todo, setTodo] = useState("");
 
-    const handleOnChangeInput = (todo) => {
-        setTodo(todo.target.value);
-    };
+    const handleOnChangeInput = useCallback(
+        (todo) => {
+            setTodo(todo.target.value);
+        },
+        [todo]
+    );
 
-    const handleSubmitTodo = (event) => {
-        event.preventDefault();
-        if (!todo) {
-            alert("Please add a task description.");
-            return;
-        }
-        const newTodo = {
-            id: Math.floor(Math.random() * 10000 + 1),
-            title: todo,
-            isOpen: false,
-        };
-        const newTodos = [...todos, newTodo];
-        setTodos(newTodos);
-        setTodo("");
-    };
+    const handleSubmitTodo = useCallback(
+        (event) => {
+            event.preventDefault();
+            if (!todo) {
+                alert("Please add a task description.");
+                return;
+            }
+            const newTodo = {
+                id: Math.floor(Math.random() * 10000 + 1),
+                title: todo,
+                isOpen: false,
+            };
+            const newTodos = [...todos, newTodo];
+            setTodos(newTodos);
+            setTodo("");
+        },
+        [todo]
+    );
 
     return (
         <div className="todo-container">
