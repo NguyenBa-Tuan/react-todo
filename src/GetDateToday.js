@@ -1,4 +1,4 @@
-function GetDateToday() {
+const GetDateToday = () => {
     const day = new Date().toLocaleString("en", {
         day: "numeric",
     });
@@ -19,6 +19,6 @@ function GetDateToday() {
             <p>{month}</p>
         </div>
     );
-}
+};
 
 export default GetDateToday;
